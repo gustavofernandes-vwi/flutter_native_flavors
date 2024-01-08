@@ -19,7 +19,6 @@ public class FlutterNativeFlavorsPlugin: NSObject, FlutterPlugin {
               
               if let dict = try PropertyListSerialization.propertyList(from: infoPlistData, options: [], format: nil) as? [String: Any] {
                   config = dict
-                  print(dict)
               }
           } catch {
               print(error)
