@@ -39,6 +39,12 @@ flutter:
         pluginClass: FlutterNativeFlavorsPlugin
       ios:
         pluginClass: FlutterNativeFlavorsPlugin
+      macos:
+        pluginClass: FlutterNativeFlavorsPlugin
+      linux:
+        pluginClass: FlutterNativeFlavorsPlugin
+      windows:
+        pluginClass: FlutterNativeFlavorsPluginCApi
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
