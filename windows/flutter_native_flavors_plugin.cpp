@@ -52,7 +52,7 @@ void FlutterNativeFlavorsPlugin::HandleMethodCall(
     }
     result->Success(flutter::EncodableValue(version_stream.str()));
   } else if (method_call.method_name().compare("getFlavorName") == 0) {
-    std::ostringstream flavor_stream
+    std::ostringstream flavor_stream;
     result->Success(flutter::EncodableValue(flavor_stream.str()));
   } else {
     result->NotImplemented();
