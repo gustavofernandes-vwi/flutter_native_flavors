@@ -11,7 +11,8 @@ class MethodChannelFlutterNativeFlavors extends FlutterNativeFlavorsPlatform {
 
   @override
   Future<String?> getFlavorName() async {
-    final version = await methodChannel.invokeMethod<String>('getFlavorName');
-    return version;
+    final String? flavorName = await methodChannel.invokeMethod<String>('getFlavorName');
+    if (flavorName != null && flavorName.isEmpty) return null;
+    return flavorName;
   }
 }
