@@ -65,15 +65,12 @@ class FlutterNativeFlavorsPlugin: FlutterPlugin, MethodCallHandler {
         }
     } catch (e: NoSuchFieldException) {
         // Field not found, handle accordingly
-        return "no_field"
         return null
     } catch (e: IllegalAccessException) {
         // Access to field failed, handle accordingly
-        return "illegal"
         return null
     }
 
-    return "unknown"
     return null
   }
 }
