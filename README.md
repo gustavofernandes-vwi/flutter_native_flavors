@@ -63,32 +63,37 @@ void main() async {
 
 1. Open your Flutter project in Android Studio.
 2. Locate the `android/app/build.gradle` file.
-3. Inside the `android` block, ensure that the `defaultConfig` section contains the following line:
-```groovy
-android {
-    namespace "com.example.myapp" // Replace with your namespace
-    // ...
-    defaultConfig {
+3. Inside the `android` block, ensure to enable `buildConfig` and that the `defaultConfig` section contains the following line:
+    ```groovy
+    android {
+        namespace "com.example.myapp" // Add this line. Replace with your namespace
         // ...
-        applicationId "com.example.myapp" // Replace with your applicationId; make sure it's similar to namespace
+        buildFeatures {
+            buildConfig true // Add this flag
+        }
         // ...
+        defaultConfig {
+            // ...
+            applicationId "com.example.myapp" // Add this config. Replace with your applicationId; make sure it's similar to namespace
+            // ...
+        }
     }
-}
-```
-The applicationId should match the package name defined in your AndroidManifest.xml file.
-4. To add flavors, add the following lines to the android block:
-```groovy
-flavorDimensions "default"
+    ```
+    The applicationId should match the package name defined in your AndroidManifest.xml file.
 
-productFlavors {
-    beta {
-        applicationIdSuffix ".beta"  // com.example.myapp.beta
+4. To add flavors, add the following lines to the android block:
+    ```groovy
+    flavorDimensions "default"
+
+    productFlavors {
+        beta {
+            applicationIdSuffix ".beta"  // com.example.myapp.beta
+        }
+        prod {
+            applicationIdSuffix ".prod"  // com.example.myapp.prod
+        }
     }
-    prod {
-        applicationIdSuffix ".prod"  // com.example.myapp.prod
-    }
-}
-```
+    ```
 Customize the flavor names (dev and prod) and the applicationIdSuffixes (.dev and .prod) to match your desired flavors.
 
 ## Making the config available on different parts of the app
